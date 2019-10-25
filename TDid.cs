@@ -32,10 +32,8 @@ namespace workWithGetDTsClasses
         public long lookupSRV(string lookedSRV)
         {
             foreach(SRV i in srvList)
-            {
                 if (i.lookupSRV(lookedSRV) && i.serviceValidity())
                     haveLookedSrv = true;
-            }
 
             if (this.haveLookedSrv)
                 return this.terminalDevice;

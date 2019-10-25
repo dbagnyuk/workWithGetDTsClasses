@@ -12,7 +12,7 @@ namespace workWithGetDTsClasses
         long personalAccount;
         List<TDid> tdsList = new List<TDid>();
         List<long> tdcWithLookedSrv = new List<long>();
-        public void processInputData(long inputPA, GetTDsOutput inputData)
+        public PAid(long inputPA, GetTDsOutput inputData)
         {
             this.personalAccount = inputPA;
 
@@ -27,7 +27,6 @@ namespace workWithGetDTsClasses
         public void writePAtoConsole()
         {
             Console.WriteLine($"TDIds with Services for PA {this.personalAccount}:\n");
-            //Console.WriteLine(this.personalAccount + "\n");
             this.tdsList.ForEach(i => i.writeTDtoConsole());
         }
         public void writeTDwithSRVtoConsole(string lookedSrv)
@@ -41,13 +40,9 @@ namespace workWithGetDTsClasses
         public void lookupSRV(string lookedSrv)
         {
             if (!string.IsNullOrEmpty(lookedSrv))
-            {
                 foreach (TDid i in tdsList)
-                {
                     if (i.lookupSRV(lookedSrv) != 0)
                         tdcWithLookedSrv.Add(i.lookupSRV(lookedSrv));
-                }
-            }
         }
         public void sortTDsList(string sortTDsType, string sortSRVsType)
         {
